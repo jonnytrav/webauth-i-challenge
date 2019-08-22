@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const userDB = require("./DBhelpers");
+const verify = require("./authUser");
 
 const server = express();
 
@@ -21,7 +22,7 @@ server.post("/users", async (req, res) => {
   }
 });
 
-server.get("/users", async (req, res) => {
+server.get("/users", verify, async (req, res) => {
   try {
     const users = await userDB.getUsers();
     res.status(200).json(users);

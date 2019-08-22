@@ -2,7 +2,8 @@ const DB = require("./DBconfig");
 
 module.exports = {
   createUser,
-  getUsers
+  getUsers,
+  findUser
 };
 
 function createUser(loginCreds) {
@@ -11,4 +12,10 @@ function createUser(loginCreds) {
 
 function getUsers() {
   return DB("users");
+}
+
+function findUser(username) {
+  return DB("users")
+    .where({ username })
+    .first();
 }

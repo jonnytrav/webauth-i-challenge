@@ -5,7 +5,10 @@ exports.up = function(knex) {
       .text("username", 64)
       .notNullable()
       .unique();
-    tbl.text("password").notNullable();
+    tbl
+      .text("password")
+      .notNullable()
+      .unique(); //bcrypt makes it unique but to make sure
   });
 };
 

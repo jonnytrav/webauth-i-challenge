@@ -8,7 +8,7 @@ exports.up = function(knex) {
     tbl
       .text("password")
       .notNullable()
-      .unique(); //bcrypt makes it unique but to make sure
+      .unique(); //bcrypt makes it unique by adding more to string in password field but just to make sure
   });
 };
 
